@@ -175,6 +175,7 @@
     "postinstall": "node ./postinstall.js"
   },
   "files": [
+    "patches/*",
     "build/",
     "dist/*",
     "src/",
