@@ -1,11 +1,11 @@
+// Polyfill AbortController
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
+
 import {extend, warnOnce, isWorker} from './util';
 import config from './config';
 import assert from 'assert';
 import {cacheGet, cachePut} from './tile_request_cache';
 import webpSupported from './webp_supported';
-
-// Polyfill AbortController
-import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
 
 import type {Callback} from '../types/callback';
 import type {Cancelable} from '../types/cancelable';
@@ -285,6 +285,8 @@ export const makeRequest = function(requestParameters: RequestParameters, callba
         }
     }
     if (!isFileURL(requestParameters.url)) {
+        // If the interface is a worker, use self, otherwise use window to access AbortController
+        const AbortController = isWorker() ? self.AbortController : window.AbortController;
         if (fetch && Request && AbortController && Object.prototype.hasOwnProperty.call(Request.prototype, 'signal')) {
             return makeFetchRequest(requestParameters, callback);
         }
