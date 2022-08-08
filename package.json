@@ -172,13 +172,10 @@
     "codegen": "npm run generate-style-code && npm run generate-struct-arrays && npm run generate-style-spec && npm run generate-shaders",
     "benchmark": "node --loader ts-node/esm --experimental-specifier-resolution=node test/bench/run-benchmarks.ts",
     "gl-stats": "node --loader ts-node/esm --experimental-specifier-resolution=node test/bench/gl-stats.ts",
-    "postinstall": "node ./postinstall.js"
+    "prepare-build": "npm run codegen && npm run generate-query-test-fixtures && patch-package",
+    "full-build": "npm run build-dev && npm run build-prod && npm run build-csp && npm run build-css"
   },
   "files": [
-    "patches/*",
-    "build/",
-    "dist/*",
-    "src/",
-    "postinstall.js"
+    "dist/*"
   ]
 }
