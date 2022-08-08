@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../dist/maplibre-gl.js"></script>
+    <title>Map</title>
+</head>
+
+<body>
+    <main>
+        <!-- Main map -->
+        <div id="map" class="map-container"></div>
+        <script>
+            const map = new maplibregl.Map({
+                container: "map",
+                style: "https://demotiles.maplibre.org/style.json",
+                center: [117.63468, 21.52495],
+                zoom: 5.2,
+                maxZoom: 7,
+                attributionControl: true,
+                customAttribution: ["© CCDA", "© OpenStreetMap"],
+            });
+        </script>
+    </main>
+</body>
+
+</html>

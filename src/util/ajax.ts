@@ -4,6 +4,9 @@ import assert from 'assert';
 import {cacheGet, cachePut} from './tile_request_cache';
 import webpSupported from './webp_supported';
 
+// Polyfill AbortController
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
+
 import type {Callback} from '../types/callback';
 import type {Cancelable} from '../types/cancelable';
 
