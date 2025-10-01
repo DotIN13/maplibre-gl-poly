@@ -81,7 +81,7 @@
     "address": "^1.1.2",
     "benchmark": "^2.1.4",
     "browserify": "^17.0.0",
-    "canvas": "^2.9.0",
+    "canvas": "^3.2.0",
     "cssnano": "^5.0.16",
     "d3": "^7.3.0",
     "d3-queue": "^3.0.7",
